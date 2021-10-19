@@ -1,0 +1,30 @@
+version: '3'
+services:
+  web:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes: 
+      - .:/code
+    ports:
+      - "8000:8000"
+    depends_on:
+      - redis
+
+  redis:
+    image: redis
+
+  celery:
+    build: .
+    command: celery -A celery_docker_proj worker -B -l info
+    volumes:
+      - .:/code
+    depends_on:
+      - redis
+
+  # celery-beat:
+  #   build: .
+  #   command: celery -A celery_docker_proj beat -l info
+  #   volumes:
+  #     - .:/code
+  #   depends_on:
+  #     - redis

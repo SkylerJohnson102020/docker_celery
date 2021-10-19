@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import environ
+# from .celery import BASE_REDIS_URL
+from celery.schedules import crontab
 
 env = environ.Env(DEBUG=(bool, False))
 environ.Env.read_env()
@@ -42,7 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app',
-    'django-celery-results',
+    # 'django_celery_results',
 ]
 
 MIDDLEWARE = [
@@ -129,3 +131,15 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CELERY_BROKER_URL = 'redis://redis:6379'
+CELERY_RESULT_BACKEND = 'redis://redis:6379'
+CELERY_ACCEPT_CONTENT = ['json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_BEAT_SCHEDULE = {
+    'hello': {
+        'task': 'app.tasks.hello',
+        'schedule': crontab() #This will execute every minute. Go to this url for more complex scheduling: https://docs.celeryproject.org/en/latest/userguide/periodic-tasks.html?highlight=crontab%20#crontab-schedules
+    }
+}
