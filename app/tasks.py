@@ -15,5 +15,5 @@ def hello():
 
 @shared_task
 def send_email_task():
-    send_mail('Celery Test', 'Celery send_email_task is working!', EMAIL_HOST_USER, ['vofeda3955@proxiesblog.com'], fail_silently=False)
+    send_mail('Celery Test', 'Celery send_email_task is working!', EMAIL_HOST_USER, ['rokeboh251@bomoads.com'], fail_silently=False)
     return None
