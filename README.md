@@ -7,7 +7,8 @@ This is a Django app used to integrate the Celery task manager, Redis as the bro
 TO DO:
 - [X] Model - with file field, datetime field. created_at, updated_at, created_by
 - [X] DRF
-serializers - model serializer (do not use __all__)
-viewset - model viewset class from drf 
-add action to viewset - check drf docs - get request and get the task to run
-urls.py - use drf routers - extra action should already be included
+- [X] serializers - model serializer (do not use __all__)
+- [] viewset - model viewset class from drf 
+- [] add action to viewset - check drf docs - get request and get the task to run
+- [] urls.py - use drf routers - extra action should already be included
+- [] change .env over to os.environ
