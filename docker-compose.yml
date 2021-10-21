@@ -4,7 +4,6 @@ services:
     build: .
     # env_file:
     #   - "./celery_docker_proj/.env"
-    # command: python manage.py runserver 0.0.0.0:8000
     command: python manage.py runserver 0.0.0.0:8000
     # command: gunicorn celery_docker_proj.wsgi --bind 0.0.0.0:8000
     volumes: 
