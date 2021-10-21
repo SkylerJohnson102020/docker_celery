@@ -8,7 +8,8 @@ TO DO:
 - [X] Model - with file field, datetime field. created_at, updated_at, created_by
 - [X] DRF
 - [X] serializers - model serializer (do not use __all__)
-- [] viewset - model viewset class from drf 
+- [] Nested serializer displaying the user as read only
+- [X] viewset - model viewset class from drf 
 - [] add action to viewset - check drf docs - get request and get the task to run
-- [] urls.py - use drf routers - extra action should already be included
+- [X] urls.py - use drf routers - extra action should already be included
 - [] change .env over to os.environ
