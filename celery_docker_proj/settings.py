@@ -154,7 +154,7 @@ CELERY_RESULT_SERIALIZER = 'json'
 CELERY_BEAT_SCHEDULE = {
     'hello': {
         'task': 'app.tasks.hello',
-        'schedule': crontab(minute='*/5'), #This will execute every minute. Go to this url for more complex scheduling: https://docs.celeryproject.org/en/latest/userguide/periodic-tasks.html?highlight=crontab%20#crontab-schedules
+        'schedule': crontab(minute='*/5'), #This will execute every 5 minutes. Go to this url for more complex scheduling: https://docs.celeryproject.org/en/latest/userguide/periodic-tasks.html?highlight=crontab%20#crontab-schedules
     },
     'send_email_task': {
         'task': 'app.tasks.send_email_task',
@@ -163,7 +163,12 @@ CELERY_BEAT_SCHEDULE = {
     'send_bulk_email_task': {
         'task': 'app.tasks.send_bulk_email_task',
         'schedule': crontab(minute='*/15')
+    },
+    'get_file_task': {
+        'task': 'app.tasks.get_file_task',
+        'schedule': crontab() #Running every minute
     }
+
 }
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'

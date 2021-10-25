@@ -7,17 +7,35 @@ from django.contrib.auth.models import User
 
 class UserSerializer(ModelSerializer):
     class Meta:
-        fields = ['id', 'username', 'email', 'first_name', 'last_name']
         model = User
+        fields = (
+            'id', 
+            'username', 
+            'email', 
+            'first_name',
+            'last_name')
+            
 
 class SimpleDRFModelSerializer(ModelSerializer):    
     class Meta:
-        fields = ('id', 'created_by','file_field', 'description', 'created_at', 'updated_at')
         model = DRFModel
+        fields = (
+            'id', 
+            'created_by',
+            'file_field', 
+            'description', 
+            'created_at', 
+            'updated_at')
 
 class DRFModelSerializer(ModelSerializer):
     created_by = UserSerializer()
     
     class Meta:
-        fields = ('id', 'created_by','file_field', 'description', 'created_at', 'updated_at')
         model = DRFModel
+        fields = (
+            'id', 
+            'created_by',
+            'file_field', 
+            'description', 
+            'created_at', 
+            'updated_at')

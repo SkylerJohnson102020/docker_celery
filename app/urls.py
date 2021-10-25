@@ -3,5 +3,5 @@ from rest_framework import routers
 from .views import DRFModelViewSet
 
 router = routers.DefaultRouter()
-router.register('', DRFModelViewSet)
+router.register('model_test', DRFModelViewSet)
 urlpatterns = router.urls
