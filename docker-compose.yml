@@ -9,7 +9,7 @@ services:
     volumes: 
       - .:/code
     ports:
-      - "8000:8000"
+      - "8001:8000" # port running on laptop "8001":port the container is running "8000"
     depends_on:
       - redis
 

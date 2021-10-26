@@ -61,6 +61,6 @@ def get_file_task(report_id):
     with open(report.output_file.file, 'w') as my_file:
         my_file.write("Test\n")
 
-    return None
+    return report
 
         

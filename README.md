@@ -15,7 +15,6 @@ TO DO:
 - [] change .env over to os.environ
 - [] refactor app into an api file
 - [] template frontend with crud????
-- [] styling????
 - [] more tasks for celery - if object is more than 90 days olds, send update or delete email.
 - [] A task that will look at an instance of the DRFModel and get it by id. If a file has been created, then open the file and write something to it. If not, create a txt file and write a standard message. 
 

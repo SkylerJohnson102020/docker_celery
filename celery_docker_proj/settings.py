@@ -15,6 +15,7 @@ import environ
 import os
 # from .celery import BASE_REDIS_URL
 from celery.schedules import crontab
+# from app.tasks import *
 
 env = environ.Env(DEBUG=(bool, False))
 environ.Env.read_env()
@@ -164,10 +165,10 @@ CELERY_BEAT_SCHEDULE = {
         'task': 'app.tasks.send_bulk_email_task',
         'schedule': crontab(minute='*/15')
     },
-    'get_file_task': {
-        'task': 'app.tasks.get_file_task',
-        'schedule': crontab() #Running every minute
-    }
+    # 'get_file_task': {
+    #     'task': 'app.tasks.get_file_task',
+    #     'schedule': crontab('*/15'),
+    # }
 
 }
 
